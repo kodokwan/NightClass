@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 입력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select, 
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>학생 정보 입력</h1>
+    <form action="/submit" method="post">
+        <div class="form-group">
+            <label for="seatNumber">좌석번호</label>
+            <select id="seatNumber" name="seatNumber" required>
+                <!-- 좌석번호 옵션 생성 -->
+                <script>
+                    for (let i = 1; i <= 49; i++) {
+                        let seat = 'A' + i;
+                        document.write(`<option value="${seat}">${seat}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="grade">학년</label>
+            <select id="grade" name="grade" required>
+                <!-- 학년 옵션 생성 -->
+                <script>
+                    const grades = ['G7', 'G8', 'G9', 'G10', 'G11', 'G12'];
+                    grades.forEach(grade => {
+                        document.write(`<option value="${grade}">${grade}</option>`);
+                    });
+                </script>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">제출</button>
+        </div>
+    </form>
+</body>
+</html>
